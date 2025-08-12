@@ -8,7 +8,7 @@ import com.example.Kcsj.entity.VideoRecords;
 import com.example.Kcsj.mapper.VideoRecordsMapper;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 @RestController
 @RequestMapping("/videoRecords")
