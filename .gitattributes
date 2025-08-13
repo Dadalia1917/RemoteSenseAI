@@ -1,43 +1,30 @@
-# 将ffmpeg文档目录标记为文档，不参与语言统计
+# ======================
+# 全局排除策略：只识别指定目录中的代码
+# ======================
+
+# 排除所有HTML文件（包括文档和构建产物）
+*.html linguist-documentation
 ffmpeg-7.1-full_build/doc/* linguist-documentation
 ffmpeg-7.1-full_build/doc/*.html linguist-documentation
-
-# 将Vue构建产物标记为生成的文件，不参与统计
 vue/dist/* linguist-generated
-vue/node_modules/* linguist-vendored
+springboot/target/* linguist-generated
 
-# 将Spring Boot构建产物标记为生成的文件
+# 排除所有构建产物和依赖
+vue/node_modules/* linguist-vendored
 springboot/target/* linguist-generated
 springboot/files/* linguist-generated
-
-# 将Python缓存文件标记为生成的
 flask/__pycache__/* linguist-generated
 flask/utils/__pycache__/* linguist-generated
 flask/ultralytics/* linguist-vendored
 
-# 将模型权重文件和运行结果标记为生成的
+# 排除ffmpeg二进制文件和文档
+ffmpeg-7.1-full_build/* linguist-documentation
+
+# 排除模型权重文件和运行结果
 flask/weights/* linguist-generated
 flask/runs/* linguist-generated
 
-# 将测试文件标记为测试资源
-TestFiles/* linguist-generated
-
-# 正确标记文件类型
-*.vue linguist-language=Vue
-*.py linguist-language=Python
-*.java linguist-language=Java
-*.ts linguist-language=TypeScript
-*.js linguist-language=JavaScript
-*.scss linguist-language=SCSS
-*.css linguist-language=CSS
-
-# 将配置文件等标记为配置
-*.json linguist-language=JSON
-*.xml linguist-language=XML
-*.properties linguist-language=Properties
-*.md linguist-language=Markdown
-
-# 忽略某些不重要的文件类型统计
+# 排除媒体和二进制文件
 *.exe linguist-generated
 *.jar linguist-generated
 *.pt linguist-generated
@@ -48,3 +35,37 @@ TestFiles/* linguist-generated
 *.ico linguist-generated
 *.svg linguist-generated
 *.ttf linguist-generated
+*.woff linguist-generated
+*.woff2 linguist-generated
+
+# 排除文档目录
+TestFiles/* linguist-documentation
+*.md linguist-documentation
+
+# ======================
+# 只识别核心代码文件
+# ======================
+
+# Vue.js 前端代码（只在vue/src目录）
+vue/src/**/*.vue linguist-language=Vue
+vue/src/**/*.ts linguist-language=TypeScript
+vue/src/**/*.js linguist-language=JavaScript
+vue/src/**/*.scss linguist-language=SCSS
+vue/src/**/*.css linguist-language=CSS
+
+# Spring Boot 后端代码（只在springboot/src目录）
+springboot/src/**/*.java linguist-language=Java
+springboot/src/**/*.properties linguist-language=Properties
+
+# Flask Python代码（只在flask目录的py文件）
+flask/*.py linguist-language=Python
+flask/**/*.py linguist-language=Python
+
+# 数据库文件
+*.sql linguist-language=SQL
+
+# 配置文件（限制范围）
+vue/package.json linguist-language=JSON
+vue/tsconfig.json linguist-language=JSON  
+vue/vite.config.ts linguist-language=TypeScript
+springboot/pom.xml linguist-language=XML
