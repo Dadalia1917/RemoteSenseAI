@@ -1,71 +1,75 @@
-# ======================
-# 全局排除策略：只识别指定目录中的代码
-# ======================
+# Language detection configuration
+# Exclude build artifacts and dependencies from language statistics
 
-# 排除所有HTML文件（包括文档和构建产物）
-*.html linguist-documentation
-ffmpeg-7.1-full_build/doc/* linguist-documentation
-ffmpeg-7.1-full_build/doc/*.html linguist-documentation
-vue/dist/* linguist-generated
-springboot/target/* linguist-generated
+# Frontend build artifacts and dependencies
+**/node_modules/** linguist-vendored
+**/dist/** linguist-generated
+**/build/** linguist-generated
+**/.nuxt/** linguist-generated
+**/.output/** linguist-generated
+**/coverage/** linguist-generated
 
-# 排除所有构建产物和依赖
-vue/node_modules/* linguist-vendored
-springboot/target/* linguist-generated
-springboot/files/* linguist-generated
-flask/__pycache__/* linguist-generated
-flask/utils/__pycache__/* linguist-generated
-flask/ultralytics/* linguist-vendored
+# Java build artifacts  
+**/target/** linguist-generated
+**/.gradle/** linguist-generated
+**/build/classes/** linguist-generated
 
-# 排除ffmpeg二进制文件和文档
-ffmpeg-7.1-full_build/* linguist-documentation
+# Python artifacts
+**/__pycache__/** linguist-generated
+**/*.pyc linguist-generated
+**/.pytest_cache/** linguist-generated
+**/venv/** linguist-vendored
+**/env/** linguist-vendored
 
-# 排除模型权重文件和运行结果
-flask/weights/* linguist-generated
-flask/runs/* linguist-generated
+# FFmpeg binaries - exclude from language detection
+**/ffmpeg*/** linguist-vendored
 
-# 排除媒体和二进制文件
-*.exe linguist-generated
-*.jar linguist-generated
-*.pt linguist-generated
-*.mp4 linguist-generated
-*.jpeg linguist-generated
-*.jpg linguist-generated
-*.png linguist-generated
-*.ico linguist-generated
-*.svg linguist-generated
-*.ttf linguist-generated
-*.woff linguist-generated
-*.woff2 linguist-generated
+# Model files and data - exclude from language detection
+**/*.pt linguist-vendored
+**/*.pth linguist-vendored
+**/*.pkl linguist-vendored
+**/*.npy linguist-vendored
+**/*.npz linguist-vendored
+**/*.weights linguist-vendored
+**/weights/** linguist-vendored
+**/runs/** linguist-vendored
+**/TestFiles/** linguist-vendored
+**/ultralytics/** linguist-vendored
 
-# 排除文档目录
-TestFiles/* linguist-documentation
-*.md linguist-documentation
+# Documentation and config files
+**/*.md linguist-documentation
+**/*.txt linguist-documentation
+**/*.json linguist-data
+**/*.lock linguist-generated
+**/package-lock.json linguist-generated
+**/yarn.lock linguist-generated
+**/composer.lock linguist-generated
 
-# ======================
-# 只识别核心代码文件
-# ======================
+# Images and media
+**/*.png linguist-vendored
+**/*.jpg linguist-vendored
+**/*.jpeg linguist-vendored
+**/*.gif linguist-vendored
+**/*.svg linguist-vendored
+**/*.ico linguist-vendored
+**/*.mp4 linguist-vendored
+**/*.avi linguist-vendored
 
-# Vue.js 前端代码（只在vue/src目录）
-vue/src/**/*.vue linguist-language=Vue
-vue/src/**/*.ts linguist-language=TypeScript
-vue/src/**/*.js linguist-language=JavaScript
-vue/src/**/*.scss linguist-language=SCSS
-vue/src/**/*.css linguist-language=CSS
+# Binary files and executables
+**/*.exe linguist-vendored
+**/*.dll linguist-vendored
+**/*.so linguist-vendored
+**/*.dylib linguist-vendored
 
-# Spring Boot 后端代码（只在springboot/src目录）
-springboot/src/**/*.java linguist-language=Java
-springboot/src/**/*.properties linguist-language=Properties
+# IDE and editor files
+**/.vscode/** linguist-generated
+**/.idea/** linguist-generated
+**/*.iml linguist-generated
 
-# Flask Python代码（只在flask目录的py文件）
-flask/*.py linguist-language=Python
-flask/**/*.py linguist-language=Python
-
-# 数据库文件
-*.sql linguist-language=SQL
-
-# 配置文件（限制范围）
-vue/package.json linguist-language=JSON
-vue/tsconfig.json linguist-language=JSON  
-vue/vite.config.ts linguist-language=TypeScript
-springboot/pom.xml linguist-language=XML
+# Source code language hints
+**/*.vue linguist-language=Vue
+**/*.ts linguist-language=TypeScript
+**/*.js linguist-language=JavaScript
+**/*.java linguist-language=Java
+**/*.py linguist-language=Python
+**/*.php linguist-language=PHP
