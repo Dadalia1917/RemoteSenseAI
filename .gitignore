@@ -1,0 +1,84 @@
+# ======================
+# 操作系统生成的文件
+# ======================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ======================
+# Java/Spring Boot
+# ======================
+springboot/target/
+springboot/*.jar
+springboot/*.war
+springboot/*.nar
+springboot/*.ear
+springboot/*.zip
+springboot/*.tar.gz
+springboot/*.rar
+springboot/.mvn/
+springboot/mvnw
+springboot/mvnw.cmd
+springboot/HELP.md
+springboot/*.iml
+springboot/*.ipr
+springboot/*.iws
+springboot/.idea/
+springboot/files/
+
+# ======================
+# Node.js/Vue.js
+# ======================
+vue/node_modules/
+vue/dist/
+vue/.vite/
+vue/.cache/
+vue/.parcel-cache/
+vue/.nyc_output/
+vue/coverage/
+vue/*.log
+vue/.env.local
+vue/.env.development.local
+vue/.env.test.local
+vue/.env.production.local
+
+# ======================
+# Python/Flask/深度学习
+# ======================
+flask/__pycache__/
+flask/*.pyc
+flask/*.pyo
+flask/*.pyd
+flask/.Python
+flask/env/
+flask/venv/
+flask/.venv/
+flask/*.egg-info/
+flask/ultralytics/
+flask/runs/
+flask/weights/*.pt
+
+# ======================
+# ffmpeg 文档和二进制文件
+# ======================
+ffmpeg-7.1-full_build/
+
+# ======================
+# 测试文件和临时文件
+# ======================
+TestFiles/
+*.tmp
+*.temp
+*.log
+
+# ======================
+# 数据库和配置文件（敏感信息）
+# ======================
+*.db
+*.sqlite
+*.sqlite3
+application-prod.properties

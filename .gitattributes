@@ -1,4 +1,50 @@
-*.pt filter=lfs diff=lfs merge=lfs -text
-*.weights filter=lfs diff=lfs merge=lfs -text
-*.tif filter=lfs diff=lfs merge=lfs -text
-*.exe filter=lfs diff=lfs merge=lfs -text
+# 将ffmpeg文档目录标记为文档，不参与语言统计
+ffmpeg-7.1-full_build/doc/* linguist-documentation
+ffmpeg-7.1-full_build/doc/*.html linguist-documentation
+
+# 将Vue构建产物标记为生成的文件，不参与统计
+vue/dist/* linguist-generated
+vue/node_modules/* linguist-vendored
+
+# 将Spring Boot构建产物标记为生成的文件
+springboot/target/* linguist-generated
+springboot/files/* linguist-generated
+
+# 将Python缓存文件标记为生成的
+flask/__pycache__/* linguist-generated
+flask/utils/__pycache__/* linguist-generated
+flask/ultralytics/* linguist-vendored
+
+# 将模型权重文件和运行结果标记为生成的
+flask/weights/* linguist-generated
+flask/runs/* linguist-generated
+
+# 将测试文件标记为测试资源
+TestFiles/* linguist-generated
+
+# 正确标记文件类型
+*.vue linguist-language=Vue
+*.py linguist-language=Python
+*.java linguist-language=Java
+*.ts linguist-language=TypeScript
+*.js linguist-language=JavaScript
+*.scss linguist-language=SCSS
+*.css linguist-language=CSS
+
+# 将配置文件等标记为配置
+*.json linguist-language=JSON
+*.xml linguist-language=XML
+*.properties linguist-language=Properties
+*.md linguist-language=Markdown
+
+# 忽略某些不重要的文件类型统计
+*.exe linguist-generated
+*.jar linguist-generated
+*.pt linguist-generated
+*.mp4 linguist-generated
+*.jpeg linguist-generated
+*.jpg linguist-generated
+*.png linguist-generated
+*.ico linguist-generated
+*.svg linguist-generated
+*.ttf linguist-generated
